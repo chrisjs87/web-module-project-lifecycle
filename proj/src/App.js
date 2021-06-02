@@ -7,14 +7,25 @@ import axios from 'axios'
 class App extends React.Component {
 
 	state = {
-		userData: {}
+		userData: [],
+		followerData: []
 	}
 
 	componentDidMount(){
-		axios.get('https://api.github.com/users/chrisjs87')
+		axios.get('https://api.github.com/users/fabpot') // https://api.github.com/users/chrisjs87
 			.then(res => {
 				this.setState({
 					userData: res.data
+				})
+			})
+			.catch(err => {
+				console.log(err);
+			})
+
+		axios.get('https://api.github.com/users/fabpot/followers')
+			.then(res => {
+				this.setState({
+					followerData: res.data
 				})
 			})
 			.catch(err => {
@@ -26,7 +37,7 @@ class App extends React.Component {
 		return(
 			<div>
 				<UserCard userData={this.state.userData} />
-				<UserFollowerList/>
+				<UserFollowerList followerData={this.state.followerData} />
 			</div>
 		)
 	}
