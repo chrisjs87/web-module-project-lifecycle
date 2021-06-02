@@ -4,10 +4,10 @@ class UserCard extends React.Component {
 	render() {
 		return(
 			<div>
-				<p>{this.props.userData.login}</p>
-				<p>{this.props.userData.name}</p>
-				<p>{this.props.userData.location}</p>
-				<p>{this.props.userData.bio}</p>
+				<p>UserName: {this.props.userData.login}</p>
+				<p>Name: {this.props.userData.name}</p>
+				<p>Location: {this.props.userData.location}</p>
+				<p>Bio: {this.props.userData.bio}</p>
 			</div>
 		)
 	}
